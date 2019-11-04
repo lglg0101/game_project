@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "Komika Title - Brush";
+    src: url("KOMTITBR.ttf") format("Regular");
+  }
+  
+  canvas { 
+    background: yellow;
+    border: 4px, solid, blue;
+}
+
+body {
+    font-family: "Komika Title - Brush";
+}
