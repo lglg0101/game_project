@@ -8,7 +8,7 @@
           this.x = 0;
           //   this.velocityX = -2;
           this.img = new Image();
-          this.img.src = "images/backgroundcolor.png"
+          this.img.src = "images/canvas bg2.png"
       }
 
 //two backgounds for scrolling effect

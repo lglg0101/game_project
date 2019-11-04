@@ -1,11 +1,11 @@
 const $canvas = document.querySelector('canvas');
 
 const game = new Game($canvas);
-const startBtn = document.querySelector(".startBtn")
+const startText = document.querySelector(".startText")
 
 
 window.addEventListener('load', () => {
-    startBtn.addEventListener('click', () => {
+    startText.addEventListener('click', () => {
       game.start();
     });
 });

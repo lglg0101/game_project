@@ -3,11 +3,25 @@
     src: url("KOMTITBR.ttf") format("Regular");
   }
   
-  canvas { 
-    background: yellow;
+canvas { 
     border: 4px, solid, blue;
 }
 
 body {
+    margin: -20; 
     font-family: "Komika Title - Brush";
+    background: url('images/viral.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.startText { 
+  font-family: "Komika Title - Brush";
+  color: blue;
+  margin-left: 100px;
+
+}
+
+h2:hover { 
+  color: limegreen;
 }
