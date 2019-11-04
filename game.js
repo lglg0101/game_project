@@ -13,7 +13,8 @@ class Game {
         this.coins = [];
         this.trollSpeed = 3000;
         this.videoSpeed = 6000;
-        this.timer = 0;
+        this.trollTimer = 0;
+        this.videoTimer = 0;
     }
 
 //calling my drawing's everything 
@@ -21,41 +22,43 @@ class Game {
         this.clearAll();
         this.background.draw();
         this.player.draw();
-        window.requestAnimationFrame(timestamp => this.drawEverything(timestamp));
-
+        
         for (let i = 0; i < this.troll.length; i++) {
             this.troll[i].draw();
         }
-
+        
         for (let i = 0; i < this.video.length; i++) {
             this.video[i].draw();
         }
-
+        
         this.updateEverything(timestamp)
+        window.requestAnimationFrame(timestamp => this.drawEverything(timestamp));
     }
     
 //update everything 
     updateEverything(timestamp) {
         this.player.update();
-        console.log(this.player.x)
-        console.log(this.player.y)
+        console.log(this.video)
+        // console.log(this.)
 
 //if timer is less than (timestamp - 3 seconds), push new troll into array 
-        if (this.timer < timestamp - this.trollSpeed) {
+        if (this.trollTimer < timestamp - this.trollSpeed) {
             this.troll.push(new Troll(this));
-            this.timer = timestamp; 
+
+            this.trollTimer = timestamp; 
         } 
 
 //if timer is less than (timestamp - 6 seconds), push new video into array 
-        if (this.timer < timestamp - this.videoSpeed) { 
+        if (this.videoTimer < timestamp - this.videoSpeed) { 
             this.video.push(new Video(this));
-            this.timer = timestamp; 
+            this.videoTimer = timestamp; 
         }
      
         
         for (let i = 0; i < this.troll.length; i++) {
             this.troll[i].update();
 
+        }
             // if(this.player.checkCollision(this.player, this.troll[i])) {
             // this.player.score++;
             // this.troll.splice(i, 1);
@@ -64,7 +67,6 @@ class Game {
         for (let i = 0; i < this.video.length; i++) {
             this.video[i].update()
         }
-    }
 }
 
 //animation
