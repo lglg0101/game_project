@@ -10,7 +10,7 @@ canvas {
 body {
     margin: -20; 
     font-family: "Komika Title - Brush";
-    /* background: url('images/viral.png'); */
+    background: url('images/viral.png');
     background-repeat: no-repeat;
     background-size: cover;
 }

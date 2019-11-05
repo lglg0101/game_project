@@ -15,6 +15,7 @@ class Game {
         this.videoSpeed = 6000;
         this.trollTimer = 0;
         this.videoTimer = 0;
+        this.end = false;
     }
 
 //calling my drawing's everything 
@@ -32,7 +33,11 @@ class Game {
         }
         
         this.updateEverything(timestamp)
-        window.requestAnimationFrame(timestamp => this.drawEverything(timestamp));
+        
+        const animation = window.requestAnimationFrame(timestamp => this.drawEverything(timestamp));
+        if(this.end){
+            window.cancelAnimationFrame(animation);
+        }
     }
     
 //update everything 
@@ -66,7 +71,8 @@ class Game {
         if (this.troll.length){
             for (let i = 0; i < this.troll.length ; i++) {
               if (this.collision(this.player, this.troll[i])) {
-                console.log("hello");
+                 this.end = true;
+                 this.resetGame();
               }
           }
         }
@@ -91,9 +97,9 @@ collision(player, obj) {
             return true;
         } 
 } 
+
+
             
-
-
 //clear the canvas
 clearAll() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -102,7 +108,9 @@ clearAll() {
 
 //reset the game
 resetGame() {
-    this.player = new Player(100, 100);
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    
 }
 
 //start the game
