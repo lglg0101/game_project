@@ -19,6 +19,15 @@ class Score {
     this.totalScore;
     }
 
+draw(){ 
+    const context = this.game.context;
+
+    context.font = '20px monospace'; 
+    context.fillStyle = 'yellow'; 
+
+    context.fillText(`POINTS: ${this.score}`, 300, 77); 
+
+} 
   
 levelUpdate() {
         if (this.game.score.score = this.game.score.score + 50) {

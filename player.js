@@ -8,9 +8,9 @@ class Player {
         this.playerWidth = 40;
         this.playerHeight = 60;
         this.vx = 0;
-        this.vy = 0.2;
+        this.vy = 0.3;
         this.score = 0;
-        this.gravity = 0.005;
+        this.gravity = 0.009;
         this.rockbottom = this.height - this.playerHeight;
         //   this.life = 3;
         this.img = new Image();
@@ -22,12 +22,12 @@ class Player {
     }
    
 
-    // hitBottom() {
-    //     if (this.y > this.rockbottom) {
-    //         this.y = this.rockbottom;
-    //       clearInterval(intervalId);
-    //     }
-    // }
+// hitBottom() {
+//     if (this.y > this.rockbottom) {
+//     this.y = this.rockbottom;
+//     clearInterval(intervalId);
+//     //     }
+//     // }
     
 update() {
         this.x += this.vx;
@@ -36,13 +36,4 @@ update() {
         this.vy += this.gravity;
         // this.hitBottom();
     }
-
-    // boundaries() {
-    //        if (this.x - this.playerWidth < 0) this.x = this.playerWidth;
-    //        if (this.x + this.playerWidth > this.width)
-    //            this.x = this.width - this.playerWidth;
-    //     if (this.y - this.playerHeight < 0) this.y = this.playerHeight;
-    //     if (this.y + this.playerHeight > this.height)
-    //             this.y = this.height - this.playerHeight;
-    //         }
-    }
+} 

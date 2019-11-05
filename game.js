@@ -20,6 +20,8 @@ class Game {
         this.videoTimer = 0;
         this.coinTimer = 0;
         this.end = false;
+        this.grid = new Grid (this);
+        // this.audio = new Audio(this);
     }
 
     //calling my drawing's everything 
@@ -27,6 +29,7 @@ class Game {
         this.clearAll();
         this.background.draw();
         this.player.draw();
+        this.score.draw();
 
         for (let i = 0; i < this.troll.length; i++) {
             this.troll[i].draw();
@@ -93,7 +96,7 @@ class Game {
             for (let i = 0; i < this.troll.length; i++) {
                 if (this.collision(this.player, this.troll[i])) {
                     this.video.splice(i, 1);
-                    this.resetGame();
+                    this.endGame();
                     console.log("TROLL COLLISION", );
                 }
             }
@@ -103,6 +106,7 @@ class Game {
                 if (this.collision(this.player, this.video[i])) {
                     this.video.splice(i, 1);
                     this.score.videoPoints();
+                    // this.audio.play();
                     console.log(this.score.score);
                     console.log("VIDEO COLLISION", this.score.score);
                 }
@@ -111,9 +115,9 @@ class Game {
         //call collision function with coins - score points 
             for (let i = 0; i < this.coin.length; i++) {
                 if (this.collision(this.player, this.coin[i])) {
-                    console.log("COIN COLLISION", this.score.score); 
                     this.coin.splice(i, 1); 
                     this.score.score += 10;
+                    console.log("COIN COLLISION", this.score.score); 
                 }
             }
         }
@@ -123,8 +127,6 @@ class Game {
         this.drawEverything()
         this.updateEverything(timestamp)
     }
-
-
 
     //collision function
     collision(player, obj) { 
@@ -141,10 +143,10 @@ class Game {
 
 
     //reset the game
-    resetGame() {
+    endGame() {
         this.end = true;
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
+        // this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.grid.drawGrid()
     }
 
     //start the game
