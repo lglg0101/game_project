@@ -11,8 +11,9 @@ class Video {
       this.vx = -1;
       this.img = new Image();
       this.img.src = 'images/red.png'; 
-    //   this.audio = new Audio();
-    //   this.audio.src = ""; 
+      
+      this.audio = new Audio();
+      this.audio.src = 'audio/numa.mp3'
     
     }
 
