@@ -9,7 +9,7 @@ class Game {
         this.controls = new Controls(this);
         this.controls.setControls();
         this.score = new Score(this);
-        this.scoreText = "Points: " + (this.score.videoPoints() + this.score.coinPoints());
+        // this.scoreText = "Points: " + 
         this.troll = [];
         this.video = [];
         this.coin = [];
@@ -101,20 +101,19 @@ class Game {
         //call collision function with video - score points 
             for (let i = 0; i < this.video.length; i++) {
                 if (this.collision(this.player, this.video[i])) {
-                    this.score.videoPoints();
-                    this.scoreText;
                     this.video.splice(i, 1);
-                    console.log("VIDEO COLLISION", this.scoreText);;
+                    this.score.videoPoints();
+                    console.log(this.score.score);
+                    console.log("VIDEO COLLISION", this.score.score);
                 }
             }
 
         //call collision function with coins - score points 
             for (let i = 0; i < this.coin.length; i++) {
                 if (this.collision(this.player, this.coin[i])) {
-                    this.scoreText;
-                    this.coin.splice(i, 1);
-                    console.log("COIN COLLISION",this.scoreText);;
-
+                    console.log("COIN COLLISION", this.score.score); 
+                    this.coin.splice(i, 1); 
+                    this.score.score += 10;
                 }
             }
         }
@@ -124,6 +123,8 @@ class Game {
         this.drawEverything()
         this.updateEverything(timestamp)
     }
+
+
 
     //collision function
     collision(player, obj) { 

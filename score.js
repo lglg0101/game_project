@@ -8,20 +8,25 @@ class Score {
     }
 
     coinPoints() {
-    this.score = this.score + this.coinScore
+    this.score += this.coinScore
     }
 
     videoPoints() {
-    this.score = this.score + this.videoScore;
+    this.score += this.videoScore;
     }
 
+    scoreTotal () {
+    this.totalScore;
+    }
 
-    // LevelUpdate() {
-        
-    // if (this.game.score.score = this.game.score.score + 50) {
-    // this.game.speed = this.game.speed - 500
-    //     }
-    // }  
-    // ResetScore() {
-    //    this.score = 0 
-    }   
+  
+levelUpdate() {
+        if (this.game.score.score = this.game.score.score + 50) {
+        this.game.speed = this.game.speed - 500
+            }
+        }  
+
+    resetScore() {
+           this.score = 0; 
+    } 
+} 

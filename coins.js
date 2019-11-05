@@ -9,7 +9,6 @@ class Coin {
           this.x = Math.floor((Math.random() * this.width) + 10);
           this.vy = -1;
           this.vx = -1;
-          this.scoreText =
           this.score = 100; 
           this.img = new Image();
           this.img.src = `images/coin.png`;
