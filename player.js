@@ -5,8 +5,8 @@ class Player {
         this.context = game.context
         this.x = 350;
         this.y = 0
-        this.playerWidth = 40;
-        this.playerHeight = 60;
+        this.playerWidth = 50;
+        this.playerHeight = 65;
         this.vx = 0;
         this.vy = 0.3;
         this.score = 0;

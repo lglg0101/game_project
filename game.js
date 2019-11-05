@@ -9,19 +9,19 @@ class Game {
         this.controls = new Controls(this);
         this.controls.setControls();
         this.score = new Score(this);
-        // this.scoreText = "Points: " + 
         this.troll = [];
         this.video = [];
         this.coin = [];
-        this.trollSpeed = 3000;
+        this.trollSpeed = 2000;
         this.videoSpeed = 6000;
         this.coinSpeed = 2000;
         this.trollTimer = 0;
         this.videoTimer = 0;
         this.coinTimer = 0;
         this.end = false;
-        this.grid = new Grid (this);
-        // this.audio = new Audio(this);
+        this.sounds = new Sounds (this);
+        this.gameover = new Gameover (this);
+
     }
 
     //calling my drawing's everything 
@@ -106,7 +106,7 @@ class Game {
                 if (this.collision(this.player, this.video[i])) {
                     this.video.splice(i, 1);
                     this.score.videoPoints();
-                    // this.audio.play();
+                    this.sounds.play();
                     console.log(this.score.score);
                     console.log("VIDEO COLLISION", this.score.score);
                 }
@@ -146,7 +146,8 @@ class Game {
     endGame() {
         this.end = true;
         // this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
-        this.grid.drawGrid()
+        this.gameover.draw()
+
     }
 
     //start the game

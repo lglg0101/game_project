@@ -1,5 +1,6 @@
 class Troll {
     constructor(game) {
+      this.game = game;
       this.height = game.height;
       this.width = game.width;
       this.objectWidth = 60;
@@ -32,5 +33,7 @@ class Troll {
    
     update() {
       this.y += this.vy;
+      this.game.trollSpeed -=0.01;
+
     }
   }

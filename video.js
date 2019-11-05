@@ -3,8 +3,8 @@ class Video {
       this.height = game.height;
       this.width = game.width;
       this.context = game.context;
-      this.objectWidth = 40;
-      this.objectHeight = 40; 
+      this.objectWidth = 50;
+      this.objectHeight = 50; 
       this.y = this.height;
       this.x = Math.floor((Math.random() * this.width) + 10);
       this.vy = -1;

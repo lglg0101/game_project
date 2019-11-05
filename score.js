@@ -26,7 +26,6 @@ draw(){
     context.fillStyle = 'yellow'; 
 
     context.fillText(`POINTS: ${this.score}`, 300, 77); 
-
 } 
   
 levelUpdate() {

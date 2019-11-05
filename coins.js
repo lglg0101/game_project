@@ -2,12 +2,12 @@ class Coin {
         constructor(game) { 
           this.height = game.height;
           this.width = game.width;
-          this.objectWidth = 20;
-          this.objectHeight = 20; 
+          this.objectWidth = 30;
+          this.objectHeight = 30; 
           this.context = game.context;
           this.y = Math.floor((Math.random() * this.width) + 10);
           this.x = Math.floor((Math.random() * this.width) + 10);
-          this.vy = -1;
+          this.vy = -3;
           this.vx = -1;
           this.score = 100; 
           this.img = new Image();
