@@ -3,7 +3,7 @@ class Player {
         this.height = game.height
         this.width = game.width
         this.context = game.context
-        this.x = game.width/2;
+        this.x = 350;
         this.y = 0
         this.playerWidth = 40;
         this.playerHeight = 60;

@@ -1,6 +1,5 @@
 class Troll {
     constructor(game) {
-    
       this.height = game.height;
       this.width = game.width;
       this.objectWidth = 40;
@@ -13,18 +12,23 @@ class Troll {
       this.score = 100; 
       this.img = new Image();
       this.img.src = `images/trollface.png`;
+      
+      this.img2 = new Image();
+      this.img2.src = 'images/character2.png';
     }
 
     draw() {
     this.context.save();
     this.context.drawImage(this.img, this.x, this.y, this.objectWidth, this.objectHeight);
     this.context.restore();
+    } 
 
+    drawNew() { 
+    this.context.save();
+    this.context.drawImage(this.img2, this.x, this.y, this.objectWidth, this.objectHeight);
+    this.context.restore();
     }
 
-    updateScore(){ 
-      this.score -= 10;
-    }
    
     update() {
       this.y += this.vy;
