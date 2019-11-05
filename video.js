@@ -3,6 +3,8 @@ class Video {
       this.height = game.height;
       this.width = game.width;
       this.context = game.context;
+      this.objectWidth = 40;
+      this.objectHeight = 40; 
       this.y = this.height;
       this.x = Math.floor((Math.random() * this.width) + 10);
       this.vy = -1;
@@ -16,7 +18,7 @@ class Video {
 
     draw() {
     this.context.save();
-    this.context.drawImage(this.img, this.x, this.y, 40, 40);
+    this.context.drawImage(this.img, this.x, this.y, this.objectWidth,  this.objectHeight);
     this.context.restore();
 
     }

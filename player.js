@@ -29,7 +29,7 @@ class Player {
     //     }
     // }
     
-    update() {
+update() {
         this.x += this.vx;
         this.y += this.vy;
         this.y += this.gravity;
