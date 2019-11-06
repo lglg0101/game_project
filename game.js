@@ -6,11 +6,11 @@ class Game {
         this.height = $canvas.height;
         this.width = $canvas.width;
 
-        //display canvas 
-        this.display = $display;
-        this.displayContext = $display.getContext("2d");
-        this.displayHeight = $display.height;
-        this.displayWidth = $display.width; 
+        // //display canvas 
+        // this.display = $display;
+        // this.displayContext = $display.getContext("2d");
+        // this.displayHeight = $display.height;
+        // this.displayWidth = $display.width; 
 
 
         this.player = new Player(this);
@@ -18,9 +18,12 @@ class Game {
         this.controls = new Controls(this);
         this.controls.setControls();
         this.score = new Score(this);
+        this.clips = new Clips(this);
+
         this.troll = [];
         this.video = [];
         this.coin = [];
+        
         this.trollSpeed = 2000;
         this.videoSpeed = 6000;
         this.coinSpeed = 2000;
@@ -34,9 +37,16 @@ class Game {
     }
 
     //calling my drawing's everything 
+
+    drawEverythingOnSecondCanvas() {
+        // this.clips.drawClipsBackground();
+        this.clips.draw()
+    }
+
     drawEverything(timestamp) {
         this.clearAll();
         this.background.draw();
+
         this.player.draw();
         this.score.draw(); 
 
@@ -51,8 +61,8 @@ class Game {
         for (let i = 0; i < this.coin.length; i++) {
             this.coin[i].draw();
         }
-
-
+        // drawing second background
+        //this.drawEverythingOnSecondCanvas()
 
         this.updateEverything(timestamp)
         const animation = window.requestAnimationFrame(timestamp => this.drawEverything(timestamp));
@@ -64,9 +74,7 @@ class Game {
     //update everything 
     updateEverything(timestamp) {
         this.player.update();
-        //console.log(this.video)
-        //console.log(this.troll);
-
+    
 
         // if Troll timer is less than (timestamp - 3 seconds), push new troll into array 
         if (this.trollTimer < timestamp - this.trollSpeed) {
@@ -114,19 +122,21 @@ class Game {
         //call collision function with video - score points 
             for (let i = 0; i < this.video.length; i++) {
                 if (this.collision(this.player, this.video[i])) {
-                    this.video.splice(i, 1);
                     this.score.videoPoints();
-                    this.video.num = this.video.array[0];
-                    this.video.getVideoAttribute(); 
-                    this.video.array.splice[0, 1];
-                    img = new Image();
-                    img.src = this.video.clip.image; 
-                    this.draw.displayContext.drawImage(img, 0, 0, 200, 200); 
-                    this.video.clip.audio.play(); 
+                    this.video.splice(i, 1);
                     
-                    // this.sounds.play();
-                    // console.log(this.score.score);
-                    // console.log("VIDEO COLLISION", this.score.score);
+                    $clipCanvas.src = game.clips.clipsArray[0];
+                    this.clips.clipsArray.splice(0, 1);
+                    
+                    let audio = new Audio(this.clips.audioArray[0]);
+                    audio.play();
+                    this.clips.audioArray.splice(0, 1);
+
+
+
+                    // this.drawEverythingOnSecondCanvas();
+                    // this.clips.array.splice[i, 1];
+            
                 }
             }
 
@@ -136,6 +146,7 @@ class Game {
                     this.coin.splice(i, 1); 
                     this.score.score += 10;
                     console.log("COIN COLLISION", this.score.score); 
+
                 }
             }
         }

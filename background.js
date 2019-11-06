@@ -1,4 +1,4 @@
-  class Background {
+class Background {
       constructor(game) {
           //mainCanvas 
           this.height = game.height
@@ -10,21 +10,15 @@
           this.img.src = "images/canvasbg3.png"
 
         //displayCanvas
-        this.displayWidth = game.displayWidth;
-        this.displayHeight = game.displayHeight;
-        this.displayContext = game.displayContext
-        this.displayX = 0;
-        this.displayY = 0;
-        this.displayImg = new Image();
-        this.displayImg.src = "images/quicktime.png"
+       
       }
 
 //both backgrounds
-      draw() {
+draw() {
           this.context.drawImage(this.img, this.x, this.y, this.width, this.height);
-
-        this.displayContext.drawImage(this.displayImg, this.displayX, this.displayY, this.displayWidth, this.displayHeight);
       }
+
+
 
 // //scrolling effect
 //       update() {

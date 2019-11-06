@@ -11,9 +11,6 @@ class Video {
     this.vx = -1;
     this.img = new Image();
     this.img.src = 'images/red.png';
-    this.clip;
-    this.array = [1, 2];
-    this.num;
   }
 
   draw() {
@@ -26,29 +23,4 @@ class Video {
       this.y += this.vy;
     }
 
-
-    getVideoAttribute() {
-
-    switch (this.num) {
-      case 1:
-        
-        this.clip = {
-          image: 'screenshots/babymonkey.png',
-          audio: 'audio/babymonkey.mp3'
-        }
-        break;
-
-      case 2:
-        this.clip = {
-          image: 'screenshots/badger.png',
-          audio: 'audio/badger.mp3'
-        }
-        default:
-          this.clip = {
-            image: 'screenshots/babymonkey.png',
-            audio: 'audio/babymonkey.mp3'
-
-    }
-    }
-  }
 }

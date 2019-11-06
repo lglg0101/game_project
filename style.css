@@ -29,6 +29,11 @@ body {
   }
 
 
+#clipCanvas {
+  width: 300px;
+  height: 180px;
+}
+
 
 h2:hover { 
   color: limegreen;
