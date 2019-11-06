@@ -1,9 +1,18 @@
 class Game {
-    constructor($canvas) {
+    constructor($canvas, $display) {
+        //game canvas 
         this.canvas = $canvas;
         this.context = $canvas.getContext("2d");
         this.height = $canvas.height;
         this.width = $canvas.width;
+
+        //display canvas 
+        this.display = $display;
+        this.displayContext = $display.getContext("2d");
+        this.displayHeight = $display.height;
+        this.displayWidth = $display.width; 
+
+
         this.player = new Player(this);
         this.background = new Background(this);
         this.controls = new Controls(this);
@@ -19,7 +28,7 @@ class Game {
         this.videoTimer = 0;
         this.coinTimer = 0;
         this.end = false;
-        this.sounds = new Sounds (this);
+        // this.sounds = new Sounds (this);
         this.gameover = new Gameover (this);
 
     }
@@ -106,7 +115,7 @@ class Game {
                 if (this.collision(this.player, this.video[i])) {
                     this.video.splice(i, 1);
                     this.score.videoPoints();
-                    this.sounds.play();
+                    // this.sounds.play();
                     console.log(this.score.score);
                     console.log("VIDEO COLLISION", this.score.score);
                 }

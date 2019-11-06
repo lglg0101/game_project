@@ -19,9 +19,22 @@ body {
   font-family: "Komika Title - Brush";
   color: blue;
   margin-left: 100px;
-
 }
+
+.container { 
+   display: flex;
+    flex-direction: row; 
+    justify-content: space-around;
+
+  }
+
+
 
 h2:hover { 
   color: limegreen;
 }
+
+/* #displayCanvas {
+ 
+
+} */

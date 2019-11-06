@@ -14,8 +14,16 @@ class Video {
 
       this.audio = new Audio();
       this.audio.src = 'audio/numa.mp3'
+
+    //   this.content = [{ let charlie = {
+    //                     audio: new Audio(),
+    //                     image: new Image()
+    //     }]
     
-    }
+    // 
+  }
+  
+
 
     draw() {
     this.context.save();
