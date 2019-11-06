@@ -38,7 +38,7 @@ class Game {
         this.clearAll();
         this.background.draw();
         this.player.draw();
-        this.score.draw();
+        this.score.draw(); 
 
         for (let i = 0; i < this.troll.length; i++) {
             this.troll[i].draw();
@@ -51,6 +51,7 @@ class Game {
         for (let i = 0; i < this.coin.length; i++) {
             this.coin[i].draw();
         }
+
 
 
         this.updateEverything(timestamp)
@@ -115,9 +116,17 @@ class Game {
                 if (this.collision(this.player, this.video[i])) {
                     this.video.splice(i, 1);
                     this.score.videoPoints();
+                    this.video.num = this.video.array[0];
+                    this.video.getVideoAttribute(); 
+                    this.video.array.splice[0, 1];
+                    img = new Image();
+                    img.src = this.video.clip.image; 
+                    this.draw.displayContext.drawImage(img, 0, 0, 200, 200); 
+                    this.video.clip.audio.play(); 
+                    
                     // this.sounds.play();
-                    console.log(this.score.score);
-                    console.log("VIDEO COLLISION", this.score.score);
+                    // console.log(this.score.score);
+                    // console.log("VIDEO COLLISION", this.score.score);
                 }
             }
 

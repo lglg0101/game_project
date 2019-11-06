@@ -1,37 +1,54 @@
 class Video {
-    constructor(game, audio) {
-      this.height = game.height;
-      this.width = game.width;
-      this.context = game.context;
-      this.objectWidth = 50;
-      this.objectHeight = 50; 
-      this.y = this.height;
-      this.x = Math.floor((Math.random() * this.width) + 10);
-      this.vy = -1;
-      this.vx = -1;
-      this.img = new Image();
-      this.img.src = 'images/red.png'; 
-
-      this.audio = new Audio();
-      this.audio.src = 'audio/numa.mp3'
-
-    //   this.content = [{ let charlie = {
-    //                     audio: new Audio(),
-    //                     image: new Image()
-    //     }]
-    
-    // 
+  constructor(game) {
+    this.height = game.height;
+    this.width = game.width;
+    this.context = game.context;
+    this.objectWidth = 50;
+    this.objectHeight = 50;
+    this.y = this.height;
+    this.x = Math.floor((Math.random() * this.width) + 10);
+    this.vy = -1;
+    this.vx = -1;
+    this.img = new Image();
+    this.img.src = 'images/red.png';
+    this.clip;
+    this.array = [1, 2];
+    this.num;
   }
-  
 
-
-    draw() {
+  draw() {
     this.context.save();
-    this.context.drawImage(this.img, this.x, this.y, this.objectWidth,  this.objectHeight);
+    this.context.drawImage(this.img, this.x, this.y, this.objectWidth, this.objectHeight);
     this.context.restore();
+  } 
 
-    }
     update() {
       this.y += this.vy;
     }
+
+
+    getVideoAttribute() {
+
+    switch (this.num) {
+      case 1:
+        
+        this.clip = {
+          image: 'screenshots/babymonkey.png',
+          audio: 'audio/babymonkey.mp3'
+        }
+        break;
+
+      case 2:
+        this.clip = {
+          image: 'screenshots/badger.png',
+          audio: 'audio/badger.mp3'
+        }
+        default:
+          this.clip = {
+            image: 'screenshots/babymonkey.png',
+            audio: 'audio/babymonkey.mp3'
+
+    }
+    }
   }
+}
