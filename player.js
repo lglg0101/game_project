@@ -10,9 +10,7 @@ class Player {
         this.vx = 0;
         this.vy = 0.3;
         this.score = 0;
-        this.gravity = 0.009;
-        this.rockbottom = this.height - this.playerHeight;
-        //   this.life = 3;
+        this.gravity = 0.050;
         this.img = new Image();
         this.img.src = "images/character.png";
     }
@@ -20,20 +18,12 @@ class Player {
     draw() {
         this.context.drawImage(this.img, this.x, this.y, this.playerWidth, this.playerHeight);
     }
-   
-
-// hitBottom() {
-//     if (this.y > this.rockbottom) {
-//     this.y = this.rockbottom;
-//     clearInterval(intervalId);
-//     //     }
-//     // }
     
 update() {
         this.x += this.vx;
         this.y += this.vy;
         this.y += this.gravity;
         this.vy += this.gravity;
-        // this.hitBottom();
     }
+
 } 

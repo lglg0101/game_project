@@ -7,7 +7,7 @@ class Background {
           this.y = 0;
           this.x = 0;
           this.img = new Image();
-          this.img.src = "images/canvasbg3.png"
+          this.img.src = "images/back4canvas.png";
 
         //displayCanvas
        

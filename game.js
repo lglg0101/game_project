@@ -19,11 +19,12 @@ class Game {
         this.controls.setControls();
         this.score = new Score(this);
         this.clips = new Clips(this);
+        this.gameover = new Gameover(this);
 
         this.troll = [];
         this.video = [];
         this.coin = [];
-        
+
         this.trollSpeed = 2000;
         this.videoSpeed = 6000;
         this.coinSpeed = 2000;
@@ -32,7 +33,6 @@ class Game {
         this.coinTimer = 0;
         this.end = false;
         // this.sounds = new Sounds (this);
-        this.gameover = new Gameover (this);
 
     }
 
@@ -46,9 +46,10 @@ class Game {
     drawEverything(timestamp) {
         this.clearAll();
         this.background.draw();
-
         this.player.draw();
-        this.score.draw(); 
+        this.score.draw();
+        this.score.drawVideo();
+
 
         for (let i = 0; i < this.troll.length; i++) {
             this.troll[i].draw();
@@ -61,9 +62,7 @@ class Game {
         for (let i = 0; i < this.coin.length; i++) {
             this.coin[i].draw();
         }
-        // drawing second background
-        //this.drawEverythingOnSecondCanvas()
-
+    
         this.updateEverything(timestamp)
         const animation = window.requestAnimationFrame(timestamp => this.drawEverything(timestamp));
         if (this.end) {
@@ -74,7 +73,6 @@ class Game {
     //update everything 
     updateEverything(timestamp) {
         this.player.update();
-    
 
         // if Troll timer is less than (timestamp - 3 seconds), push new troll into array 
         if (this.trollTimer < timestamp - this.trollSpeed) {
@@ -111,45 +109,50 @@ class Game {
         }
 
         //call collision function with troll - end game 
-            for (let i = 0; i < this.troll.length; i++) {
-                if (this.collision(this.player, this.troll[i])) {
-                    this.video.splice(i, 1);
-                    this.endGame();
-                    console.log("TROLL COLLISION", );
-                }
-            }
-    
-        //call collision function with video - score points 
-            for (let i = 0; i < this.video.length; i++) {
-                if (this.collision(this.player, this.video[i])) {
-                    this.score.videoPoints();
-                    this.video.splice(i, 1);
-                    
-                    $clipCanvas.src = game.clips.clipsArray[0];
-                    this.clips.clipsArray.splice(0, 1);
-                    
-                    let audio = new Audio(this.clips.audioArray[0]);
-                    audio.play();
-                    this.clips.audioArray.splice(0, 1);
-
-
-
-                    // this.drawEverythingOnSecondCanvas();
-                    // this.clips.array.splice[i, 1];
-            
-                }
-            }
-
-        //call collision function with coins - score points 
-            for (let i = 0; i < this.coin.length; i++) {
-                if (this.collision(this.player, this.coin[i])) {
-                    this.coin.splice(i, 1); 
-                    this.score.score += 10;
-                    console.log("COIN COLLISION", this.score.score); 
-
-                }
+        for (let i = 0; i < this.troll.length; i++) {
+            if (this.collision(this.player, this.troll[i])) {
+                this.video.splice(i, 1);
+                let audio = new Audio('audio/darkness.mp3');
+                audio.play();
+                // this.clips.audioArray.splice(0, 1);
+                this.endGame();
+                console.log("TROLL COLLISION", );
             }
         }
+
+        //call collision function with video - score points 
+        for (let i = 0; i < this.video.length; i++) {
+            if (this.collision(this.player, this.video[i])) {
+                this.score.videoPoints();
+                this.score.videoNum();
+                this.video.splice(i, 1);
+
+                console.log(this.videoNum);
+                $clipCanvas.src = game.clips.clipsArray[0];
+                this.clips.clipsArray.splice(0, 1);
+
+                let audio = new Audio(this.clips.audioArray[0]);
+                audio.play();
+                this.clips.audioArray.splice(0, 1);
+
+            }
+        }
+
+        //call collision function with coins - score points 
+        for (let i = 0; i < this.coin.length; i++) {
+            if (this.collision(this.player, this.coin[i])) {
+                this.coin.splice(i, 1);
+                this.score.coinPoints();
+                console.log("COIN COLLISION", this.score.score);
+
+            }
+        }
+
+        //border detection
+            if(this.player.x < -5 || this.player.x > 650 || this.player.y > 455){ 
+            this.endGame();
+        }
+    }
 
     //animation
     animation(timestamp) {
@@ -158,12 +161,12 @@ class Game {
     }
 
     //collision function
-    collision(player, obj) { 
-    if (player.x < obj.x + obj.objectWidth  && player.x + player.playerWidth  > obj.x &&
-    player.y < obj.y + obj.objectHeight && player.y + player.playerHeight > obj.y){ 
-        return true;
-    } 
-} 
+    collision(player, obj) {
+        if (player.x < obj.x + obj.objectWidth && player.x + player.playerWidth > obj.x &&
+            player.y < obj.y + obj.objectHeight && player.y + player.playerHeight > obj.y) {
+            return true;
+        }
+    }
 
     //clear the canvas
     clearAll() {
@@ -171,13 +174,19 @@ class Game {
     }
 
 
-    //reset the game
+    //game ends
     endGame() {
         this.end = true;
         // this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.gameover.draw()
 
     }
+
+    //reset the game 
+    reset () {
+        this.gameover.reset();
+    }
+   
 
     //start the game
     start() {

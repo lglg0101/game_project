@@ -1,10 +1,16 @@
 class Score {
     constructor(game) {
     this.game = game;
-    this.context = game.context;    
+    this.context = game.context;
+
+    //points  
     this.score = 0;
     this.coinScore = 10;
     this.videoScore = 50;
+
+    //number of videos 
+    this.videoNumber = 0;
+    this.videoNumScore = 1;
     }
 
     coinPoints() {
@@ -15,26 +21,42 @@ class Score {
     this.score += this.videoScore;
     }
 
-    scoreTotal () {
+    videoNum() { 
+    this.videoNumber += this.videoNumScore;
+    }
+
+    scoreTotal() {
     this.totalScore;
     }
 
 draw(){ 
     const context = this.game.context;
+    context.font = '20px monospace'; 
+    context.fillStyle = 'black'; 
+
+    context.fillText("Points:", 500, 75);
 
     context.font = '20px monospace'; 
-    context.fillStyle = 'yellow'; 
+    context.fillStyle = 'red'; 
 
-    context.fillText(`POINTS: ${this.score}`, 300, 77); 
+    context.fillText(`${this.score}`, 620, 75); 
+
 } 
-  
-levelUpdate() {
-        if (this.game.score.score = this.game.score.score + 50) {
-        this.game.speed = this.game.speed - 500
-            }
-        }  
 
-    resetScore() {
+drawVideo(){
+    const context = this.game.context;
+    context.font = '20px monospace'; 
+    context.fillStyle = 'black'; 
+    context.fillText(`Video's Collected:`, 10, 75);
+    context.fillStyle = 'red'; 
+    context.fillText(`${this.videoNumber}`, 240, 75);
+    context.fillStyle = 'black'; 
+    context.fillText(`/20`, 270, 75);
+}
+
+  
+
+resetScore() {
            this.score = 0; 
     } 
 } 

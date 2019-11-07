@@ -22,12 +22,16 @@ class Troll {
     this.context.save();
     this.context.drawImage(this.img, this.x, this.y, this.objectWidth, this.objectHeight);
     this.context.restore();
+    //audio
     } 
 
     drawNew() { 
     this.context.save();
     this.context.drawImage(this.img2, this.x, this.y, this.objectWidth, this.objectHeight);
     this.context.restore();
+    //audio 
+
+
     }
 
    
