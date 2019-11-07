@@ -9,15 +9,6 @@ class Clips {
         this.imageToDraw.src; 
         
 
-        // //clips background 
-        // this.displayContext = game.displayContext;
-        // this.displayWidth = game.displayWidth;
-        // this.displayHeight = game.displayHeight;
-        // this.displayX = 20;
-        // this.displayY = 0;
-        // this.displayImg = new Image();
-        // this.displayImg.src = "images/quicktime.png"
-        
          this.clipsArray = [
      'screenshots/numa.png',
      'screenshots/evolution.png',

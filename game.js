@@ -135,6 +135,8 @@ class Game {
         //call collision function with coins - score points 
         for (let i = 0; i < this.coin.length; i++) {
             if (this.collision(this.player, this.coin[i])) {
+                let audio = new Audio('audio/coin.mp3');
+                audio.play();
                 this.coin.splice(i, 1);
                 this.score.coinPoints();
                 console.log("COIN COLLISION", this.score.score);
