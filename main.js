@@ -12,7 +12,7 @@ let resetText = document.querySelector(".resetText");
 
 
 //html element for second 'canvas' 
-let $clipCanvas = document.getElementById('clipCanvas'); 
+const $clipCanvas = document.getElementById('clipCanvas'); 
 
 let $clipCanvasBg = document.getElementsByClassName('container2')
 
@@ -23,10 +23,15 @@ window.addEventListener('load', () => {
       $clipCanvas.style.background = "#f3f3f3 url('images/smallCanvas.png') no-repeat";
       game.start();
       startText.style.display = "none";
-}); resetText.addEventListener('click', () => {
-    $clipCanvas.style.background = "#f3f3f3 url('images/smallCanvas.png') no-repeat";
-    game.reset();
-    game.start();
-  });
+
+      resetText.textContent = "TRY AGAIN";
+      resetText.addEventListener('click', () => {
+        $clipCanvas.style.background = "#f3f3f3 url('images/smallCanvas.png') no-repeat";
+        game.reset();
+        $clipCanvas.style.background = "#f3f3f3 url('images/smallCanvas.png') no-repeat";
+        game.start();
+      });
+}); 
+
 });
 
