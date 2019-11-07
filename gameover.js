@@ -7,7 +7,10 @@ class Gameover {
 
         this.winImg = new Image();
         this.winImg.src = 'images/happypepe.png'
-    }
+
+        this.winAudio = new Audio(); 
+        this.winAudio.src = 'audio/win.mp3'
+    } 
 
     draw() {
         this.context.save();
@@ -16,10 +19,12 @@ class Gameover {
     }
 
     win() {
-        if (this.game.score.videoNumber === 30 || (this.clipsArray === [] && this.audioArray === [])) {
+        if (this.game.score.videoNumber > 20) {
+            this.game.sound.pause();
+            this.winAudio.play()
             this.game.end = true;
             this.winDraw();
-        }
+        }  
     }
 
     winDraw() {
@@ -34,6 +39,13 @@ reset() {
 
         //youtube image search
         $clipCanvas.src = "images/transparent2.png";
+
+        //background reset 
+        this.game.background.y = 0;
+        this.game.background.x = 0;
+        this.game.background.img = new Image();
+        this.game.background.img.src = "images/back4canvas.png";
+
 
         //game reset
         this.game.troll = [];
@@ -55,17 +67,18 @@ reset() {
         this.game.score.videoNumScore = 1;
 
         //arrays reset 
+        
         this.game.clips.clipsArray = [
             'screenshots/numa.png',
+            'screenshots/dramatic.png',
             'screenshots/evolution.png',
             'screenshots/friday.png',
-            'screenshots/grape.png',
+            'screenshots/bacon.png',
             'screenshots/charlie.png',
             'screenshots/david.png',
             'screenshots/keyboard.png',
             'screenshots/rick.png',
             'screenshots/britney.png',
-            'screenshots/dramatic.png',
             'screenshots/babymonkey.png',
             'screenshots/no.png',
             'screenshots/father.png',
@@ -77,29 +90,30 @@ reset() {
             'screenshots/nobody.png',
             'screenshots/shoes.png',
         ]
-
+       
         this.game.clips.audioArray = [
-            'audio/numa.mp3',
-            'audio/evolution.mp3',
-            'audio/friday.mp3',
-            'audio/grape.mp3',
-            'audio/charlie.mp3',
-            'audio/david.mp3',
-            'audio/keyboard.mp3',
-            'audio/rick.mp3',
-            'audio/britney.mp3',
-            'audio/dramatic.mp3',
-            'audio/babymonkey.mp3',
-            'audio/no.mp3',
-            'audio/father.mp3',
-            'audio/potter.mp3',
-            'audio/panda.mp3',
-            'audio/turtles.mp3',
-            'audio/badger.mp3',
-            'audio/hide.mp3',
-            'audio/nobody.mp3',
-            'audio/shoes.mp3',
-        ]
+           'audio/numa.mp3',
+           'audio/dramatic.mp3',
+           'audio/evolution.mp3',
+           'audio/friday.mp3',
+           'audio/bacon.mp3',
+           'audio/charlie.mp3',
+           'audio/david.mp3',
+           'audio/keyboard.mp3',
+           'audio/rick.mp3',
+           'audio/britney.mp3',
+           'audio/babymonkey.mp3',
+           'audio/no.mp3',
+           'audio/father.mp3',
+           'audio/potter.mp3',
+           'audio/panda.mp3',
+           'audio/turtles.mp3',
+           'audio/badger.mp3',
+           'audio/hide.mp3',
+           'audio/nobody.mp3',
+           'audio/shoes.mp3',
+       ]
+       
 
         //player reset
         this.game.player.x = 350;

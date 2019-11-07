@@ -11,8 +11,8 @@ class Troll {
     this.y = this.height;
   
 
-    this.vy = -5;
-    this.vx = -5;
+    // this.vy = -5;
+    // this.vx = -5;
  
 
     this.img = new Image();
@@ -27,7 +27,7 @@ class Troll {
 
   update() {
     this.y += this.vy;
-    this.game.trollSpeed -= 0.01;
+    this.game.trollSpeed -= 0.005;
   }
 
 }

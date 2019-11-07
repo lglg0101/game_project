@@ -62,14 +62,14 @@ resetScore() {
     } 
 
 highScore() {
-    if(this.score > this.saved){ 
-        this.saved += this.score; } 
+
+        if(this.score > this.saved){ 
+        this.saved = this.score; } 
         const context = this.game.context;
         context.font = '15px monospace'; 
         context.fillStyle = 'black'; 
         context.fillText(`High Score: `, 280, 75)
         context.fillStyle = 'red'; 
         context.fillText(`${this.saved}`, 380, 75);
-        
     }
 } 
