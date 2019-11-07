@@ -5,17 +5,16 @@
   
 canvas { 
     border: 4px, solid, blue;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 body {
     margin: -20; 
-    font-family: "Komika Title - Brush";
+    font-family: "Komika Title - Brush", monospace, Arial, Helvetica, sans-serif;
     background: url('images/backgroundcolor.png');
     background-repeat: repeat;
     background-size: cover;
 }
-
 
 .gameLinks { 
 

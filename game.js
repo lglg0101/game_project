@@ -6,6 +6,7 @@ class Game {
         this.height = $canvas.height;
         this.width = $canvas.width;
 
+        this.sound;
 
         this.player = new Player(this);
         this.background = new Background(this);
@@ -14,8 +15,6 @@ class Game {
         this.score = new Score(this);
         this.clips = new Clips(this);
         this.gameover = new Gameover(this);
-
-        this.audio = new Audio(this.clips.audioArray[0]);
       
         this.troll = [];
         this.video = [];
@@ -107,8 +106,14 @@ class Game {
         //call collision function with troll - end game 
         for (let i = 0; i < this.troll.length; i++) {
             if (this.collision(this.player, this.troll[i])) {
+                
                 this.video.splice(i, 1);
-                this.audio.pause();
+
+                if(this.sound !== undefined){ 
+                this.sound.pause();
+                this.clips.audioArray.splice(0, 1);
+                } 
+
                 let audio = new Audio('audio/darkness.mp3');
                 audio.play();
                 this.clips.audioArray.splice(0, 1);
@@ -123,15 +128,16 @@ class Game {
                 this.score.videoPoints();
                 this.score.videoNum();
                 this.video.splice(i, 1);
+                
 
-                console.log(this.videoNum);
 
                 $clipCanvas.src = game.clips.clipsArray[0];
                 this.clips.clipsArray.splice(0, 1);
 
-                // let audio = new Audio(this.clips.audioArray[0]);
-                this.audio.play();
+                this.sound = new Audio(this.clips.audioArray[0]);
+                this.sound.play();
                 this.clips.audioArray.splice(0, 1);
+
 
             }
         }
