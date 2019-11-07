@@ -11,7 +11,10 @@ class Score {
     //number of videos 
     this.videoNumber = 0;
     this.videoNumScore = 1;
+
+    this.saved = 0;
     }
+
 
     coinPoints() {
     this.score += this.coinScore
@@ -31,12 +34,12 @@ class Score {
 
 draw(){ 
     const context = this.game.context;
-    context.font = '20px monospace'; 
+    context.font = '15px monospace'; 
     context.fillStyle = 'black'; 
 
     context.fillText("Points:", 500, 75);
 
-    context.font = '20px monospace'; 
+    context.font = '15px monospace'; 
     context.fillStyle = 'white'; 
 
     context.fillText(`${this.score}`, 590, 75); 
@@ -45,18 +48,28 @@ draw(){
 
 drawVideo(){
     const context = this.game.context;
-    context.font = '20px monospace'; 
+    context.font = '15px monospace'; 
     context.fillStyle = 'black'; 
     context.fillText(`Video's Collected:`, 10, 75);
     context.fillStyle = 'red'; 
-    context.fillText(`${this.videoNumber}`, 240, 75);
+    context.fillText(`${this.videoNumber}`, 190, 75);
     context.fillStyle = 'black'; 
-    context.fillText(`/20`, 270, 75);
+    context.fillText(`/20`, 200, 75);
 }
-
-  
 
 resetScore() {
            this.score = 0; 
     } 
+
+highScore() {
+    if(this.score > this.saved){ 
+        this.saved += this.score; } 
+        const context = this.game.context;
+        context.font = '15px monospace'; 
+        context.fillStyle = 'black'; 
+        context.fillText(`High Score: `, 280, 75)
+        context.fillStyle = 'red'; 
+        context.fillText(`${this.saved}`, 380, 75);
+        
+    }
 } 

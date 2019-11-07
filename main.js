@@ -10,10 +10,12 @@ let context = $canvas.getContext("2d");
 
 let resetText = document.querySelector(".resetText"); 
 
+let highScore = document.querySelector(".highscore");
+
+
 
 //html element for second 'canvas' 
 const $clipCanvas = document.getElementById('clipCanvas'); 
-
 let $clipCanvasBg = document.getElementsByClassName('container2')
 
 
