@@ -20,9 +20,9 @@ class Game {
         this.video = [];
         this.coin = [];
 
-        this.trollSpeed = 2000;
-        this.videoSpeed = 7000;
-        this.coinSpeed = 300;
+        this.trollSpeed = 4000;
+        this.videoSpeed = 5000;
+        this.coinSpeed = 600;
         this.trollTimer = 0;
         this.videoTimer = 0;
         this.coinTimer = 0;
@@ -154,7 +154,7 @@ class Game {
         }
 
         //border detection
-            if(this.player.x < -5 || this.player.x > 650 || this.player.y > 455){ 
+            if(this.player.x < -5 || this.player.x > 650 || this.player.y > 455 || this.player.y < -50){ 
             this.endGame();
         }
     }

@@ -10,9 +10,8 @@ class Troll {
     this.x = Math.floor((Math.random() * this.width) + 10);
     this.y = this.height;
   
-
-    // this.vy = -5;
-    // this.vx = -5;
+    this.vy = -2.5;
+    this.vx = -2.5;
  
 
     this.img = new Image();
@@ -27,7 +26,7 @@ class Troll {
 
   update() {
     this.y += this.vy;
-    this.game.trollSpeed -= 0.005;
+    this.game.trollSpeed -= 0.0001;
   }
 
 }

@@ -7,8 +7,8 @@ class Video {
     this.objectHeight = 50;
     this.y = this.height;
     this.x = Math.floor((Math.random() * this.width) + 10);
-    this.vy = -1;
-    this.vx = -1;
+    this.vy = -3;
+    this.vx = -3;
     this.img = new Image();
     this.img.src = 'images/red.png';
   }
