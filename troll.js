@@ -9,9 +9,7 @@ class Troll {
 
     this.x = Math.floor((Math.random() * this.width) + 10);
     this.y = this.height;
-   
-    // this.trollTwoX = this.width;
-    // this.trollTwoY = Math.floor((Math.random() * this.height) + 10);
+  
 
     this.vy = -5;
     this.vx = -5;

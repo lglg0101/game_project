@@ -15,13 +15,15 @@ class Game {
         this.clips = new Clips(this);
         this.gameover = new Gameover(this);
 
+        this.audio = new Audio(this.clips.audioArray[0]);
+      
         this.troll = [];
         this.video = [];
         this.coin = [];
 
         this.trollSpeed = 2000;
-        this.videoSpeed = 6000;
-        this.coinSpeed = 2000;
+        this.videoSpeed = 7000;
+        this.coinSpeed = 300;
         this.trollTimer = 0;
         this.videoTimer = 0;
         this.coinTimer = 0;
@@ -106,9 +108,10 @@ class Game {
         for (let i = 0; i < this.troll.length; i++) {
             if (this.collision(this.player, this.troll[i])) {
                 this.video.splice(i, 1);
+                this.audio.pause();
                 let audio = new Audio('audio/darkness.mp3');
                 audio.play();
-                // this.clips.audioArray.splice(0, 1);
+                this.clips.audioArray.splice(0, 1);
                 this.endGame();
                 console.log("TROLL COLLISION", );
             }
@@ -122,12 +125,12 @@ class Game {
                 this.video.splice(i, 1);
 
                 console.log(this.videoNum);
-                
+
                 $clipCanvas.src = game.clips.clipsArray[0];
                 this.clips.clipsArray.splice(0, 1);
 
-                let audio = new Audio(this.clips.audioArray[0]);
-                audio.play();
+                // let audio = new Audio(this.clips.audioArray[0]);
+                this.audio.play();
                 this.clips.audioArray.splice(0, 1);
 
             }
@@ -177,6 +180,10 @@ class Game {
         // this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.gameover.draw()
 
+    }
+
+    stopAllAudio() {
+        
     }
 
     //reset the game 

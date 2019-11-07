@@ -7,9 +7,9 @@ class Coin {
           this.context = game.context;
           this.y = Math.floor((Math.random() * this.width) + 10);
           this.x = Math.floor((Math.random() * this.width) + 10);
-          this.vy = -4;
-          this.vx = -1;
-          this.score = 100; 
+          this.vy = 650;
+          this.vx = -10;
+          // this.score = 100; 
           this.img = new Image();
           this.img.src = `images/coin.png`;
         }
@@ -26,6 +26,6 @@ class Coin {
         }
        
         update() {
-          this.y += this.vy;
+          this.x += this.vx;
         }
       }
