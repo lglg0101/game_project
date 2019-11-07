@@ -38,7 +38,7 @@ class Troll {
 
   update() {
     this.y += this.vy;
-    this.game.trollSpeed -= 0.03;
+    this.game.trollSpeed -= 0.01;
   }
   
   // updateTrollTwo(){ 
