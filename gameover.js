@@ -6,7 +6,7 @@ class Gameover {
         this.gameOverImg.src = 'images/character2.png' 
 
         this.winImg = new Image ();
-        this.winImg.src = ''
+        this.winImg.src = 'images/happypepe.png'
     } 
 
 draw() { 
@@ -15,9 +15,16 @@ draw() {
         this.context.restore();
 } 
 
-win() { 
+win(){ 
+    if(this.game.score.videoNumber === 30 || (this.clipsArray === [] && this.audioArray === [])) { 
+        this.game.end = true;
+        this.winDraw(); 
+    }
+}
+
+winDraw() { 
         this.context.save();
-        this.context.drawImage(this.gameOverImg, 0, 50, 500, 400);
+        this.context.drawImage(this.winImg, 0, 0, 500, 450);
         this.context.restore();
 }
 

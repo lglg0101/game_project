@@ -6,12 +6,6 @@ class Game {
         this.height = $canvas.height;
         this.width = $canvas.width;
 
-        // //display canvas 
-        // this.display = $display;
-        // this.displayContext = $display.getContext("2d");
-        // this.displayHeight = $display.height;
-        // this.displayWidth = $display.width; 
-
 
         this.player = new Player(this);
         this.background = new Background(this);
@@ -32,7 +26,7 @@ class Game {
         this.videoTimer = 0;
         this.coinTimer = 0;
         this.end = false;
-        // this.sounds = new Sounds (this);
+
 
     }
 
@@ -49,6 +43,7 @@ class Game {
         this.player.draw();
         this.score.draw();
         this.score.drawVideo();
+        this.gameover.win();
 
 
         for (let i = 0; i < this.troll.length; i++) {
@@ -79,7 +74,6 @@ class Game {
             this.troll.push(new Troll(this));
             this.trollTimer = timestamp;
         }
-
 
         //if Video timer is less than (timestamp - 6 seconds), push new video into array 
         if (this.videoTimer < timestamp - this.videoSpeed) {

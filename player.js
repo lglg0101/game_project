@@ -8,9 +8,9 @@ class Player {
         this.playerWidth = 50;
         this.playerHeight = 65;
         this.vx = 0;
-        this.vy = 0.3;
+        this.vy = 0.5;
         this.score = 0;
-        this.gravity = 0.050;
+        this.gravity = 0.05;
         this.img = new Image();
         this.img.src = "images/character.png";
     }

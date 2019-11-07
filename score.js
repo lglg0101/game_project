@@ -37,9 +37,9 @@ draw(){
     context.fillText("Points:", 500, 75);
 
     context.font = '20px monospace'; 
-    context.fillStyle = 'red'; 
+    context.fillStyle = 'white'; 
 
-    context.fillText(`${this.score}`, 620, 75); 
+    context.fillText(`${this.score}`, 590, 75); 
 
 } 
 
