@@ -114,7 +114,7 @@ class Game {
             }
         }
 
-        //call collision function with video - score points 
+        //call collision function with video - score points - display video 
         for (let i = 0; i < this.video.length; i++) {
             if (this.collision(this.player, this.video[i])) {
                 this.score.videoPoints();
@@ -122,6 +122,7 @@ class Game {
                 this.video.splice(i, 1);
 
                 console.log(this.videoNum);
+                
                 $clipCanvas.src = game.clips.clipsArray[0];
                 this.clips.clipsArray.splice(0, 1);
 

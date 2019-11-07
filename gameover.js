@@ -30,14 +30,92 @@ winDraw() {
 
 
 reset () { 
+    console.log('reset is working');
+    
+    $clipCanvas.src = "images/transparent2.png"; 
 
-    // if(this.game.end === true) { 
+        this.game.troll = [];
+        this.game.video = [];
+        this.game.coin = [];
 
-    this.context.clearRect(0, 0, this.game.$canvas.width, this.game.$canvas.height);
+        this.game.trollSpeed = 2000;
+        this.game.videoSpeed = 6000;
+        this.game.coinSpeed = 2000;
+        this.game.trollTimer = 0;
+        this.game.videoTimer = 0;
+        this.game.coinTimer = 0;
+        this.game.end = false;
 
-        // this.troll = [];
-        // this.video = [];
-        // this.coin = [];
+        this.game.score.score = 0;
+        this.game.score.coinScore = 10;
+        this.game.score.videoScore = 50;
+
+   
+        this.game.score.videoNumber = 0;
+        this.game.score.videoNumScore = 1;
         
-} 
-} 
+
+         this.game.clips.clipsArray = [
+     'screenshots/numa.png',
+     'screenshots/evolution.png',
+     'screenshots/friday.png',
+     'screenshots/grape.png',
+     'screenshots/charlie.png',
+     'screenshots/david.png',
+     'screenshots/keyboard.png',
+     'screenshots/rick.png',
+     'screenshots/britney.png',
+     'screenshots/dramatic.png',
+     'screenshots/babymonkey.png',
+     'screenshots/no.png',
+     'screenshots/father.png',
+     'screenshots/potter.png',
+     'screenshots/panda.png',
+     'screenshots/turtles.png',
+     'screenshots/badger.png',
+     'screenshots/hide.png',
+     'screenshots/nobody.png',
+     'screenshots/shoes.png',
+ ]
+
+ this.game.clips.audioArray = [
+    'audio/numa.mp3',
+    'audio/evolution.mp3',
+    'audio/friday.mp3',
+    'audio/grape.mp3',
+    'audio/charlie.mp3',
+    'audio/david.mp3',
+    'audio/keyboard.mp3',
+    'audio/rick.mp3',
+    'audio/britney.mp3',
+    'audio/dramatic.mp3',
+    'audio/babymonkey.mp3',
+    'audio/no.mp3',
+    'audio/father.mp3',
+    'audio/potter.mp3',
+    'audio/panda.mp3',
+    'audio/turtles.mp3',
+    'audio/badger.mp3',
+    'audio/hide.mp3',
+    'audio/nobody.mp3',
+    'audio/shoes.mp3',]
+
+
+    this.game.player.x = 350;
+    this.game.player.y = 0
+    this.game.player.vx = 0;
+    this.game.player.vy = 0.5;
+    this.game.player.score = 0;
+    this.game.player.gravity = 0.05;
+
+
+    this.game.video.y = this.height;
+    this.game.video.x = Math.floor((Math.random() * this.width) + 10);
+    this.game.video.vy = -1;
+    this.game.video.vx = -1;
+   
+
+    }
+
+
+}  

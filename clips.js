@@ -1,8 +1,8 @@
 class Clips {
     constructor(game) {
         this.game = game;
-        this.still;
-        this.array = [1, 2];
+        // this.still;
+        // this.array = [1, 2];
 
         this.image = "";
         this.imageToDraw = new Image ();
