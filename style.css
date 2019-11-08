@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Komika Title - Brush';
-  src: url('KomikaTitle-Brush.woff2') format('woff2'),
-      url('KomikaTitle-Brush.woff') format('woff');
+  src: url('webfontkit-20191108-060546/komtitbr-webfont.woff2') format('woff2'),
+      url('webfontkit-20191108-060546/komtitbr-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
