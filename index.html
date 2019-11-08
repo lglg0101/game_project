@@ -5,11 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Chathura&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 
   <title>VIRAL 2000'S</title>
+
 
 </head>
 
@@ -17,27 +19,30 @@
 
   <div class="content">
       <div class="links"><h1>VIRAL 2000'S</h1>
-      <h3 class="startText">START GAME</h3>
+      <a href="#scroll"><h3 class="startText">START GAME</h3></a>
       <h3 class="resetText"></h3>
+      <div class="points"> 
+          <img class="icon" src="images/red.png" alt=""><h4>+ 50</h4><br>
+          <img class="icon" src="images/coin.png" alt=""><h4>+ 10</h4><br>
+          <img class="icon" src="images/trollface.png" alt=""><h4>Game Over</h4><br>
+      </div>
+    
     </div>
+
     <div class="instructions">
        <p>WELCOME TO THE 2000'S, BABY! <br>
   VIRAL VIDEOS ARE THE 'HOT' NEW THING - 
-  COLLECT THEM ALL AND AVOID THE INTERNET TROLLS <br>
-  CATCH BITCOINS - THEY MIGHT BE USEFUL IN THE FUTURE</p></div>
-  <div class="points"> 
-      <img class="icon" src="images/red.png" alt=""><h4>+ 50</h4><br>
-      <img class="icon" src="images/coin.png" alt=""><h4>+ 10</h4><br>
-      <img class="icon" src="images/trollface.png" alt=""><h4>Game Over</h4>
-    </div>
+  COLLECT THEM ALL AND CATCH AS MANY BITCOINS AS POSSIBLE ( THEY COULD BE USEFUL IN THE FUTURE )<br>
+  AVOID THE INTERNET TROLLS AND DON'T FALL OUT OF THE COMPUTER WINDOW <br><br>
+<span>USE ARROW KEYS TO MOVE AROUND</span>
+</p> 
+</div>
+<br> 
   </div>
 
+ 
 
-
-    
-
-
-
+  <div id="scroll">
   <div class="container">
     <div><canvas id="mainCanvas" width="650" height="450"></canvas></div>
   
@@ -46,6 +51,7 @@
 
     </div>
   </div>
+</div>
 
 
 
