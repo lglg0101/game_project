@@ -40,30 +40,29 @@ class Clips {
 
 
     this.audioArray = [
-      new Audio('audio/rick.mp3'),
-      new Audio('audio/no.mp3'),
-      new Audio('audio/numa.mp3'),
-      new Audio('audio/charlie.mp3'),
-      new Audio('audio/keyboard.mp3'),
-      new Audio('audio/evolution.mp3'),
-      new Audio('audio/friday.mp3'),
-      new Audio('audio/dramatic.mp3'),
-      new Audio('audio/bacon.mp3'),
-      new Audio('audio/david.mp3'),
-      new Audio('audio/britney.mp3'),
-      new Audio('audio/babymonkey.mp3'),
-      new Audio('audio/potter.mp3'),
-      new Audio('audio/father.mp3'),
-      new Audio('audio/panda.mp3'),
-      new Audio('audio/turtles.mp3'),
-      new Audio('audio/badger.mp3'),
-      new Audio('audio/hide.mp3'),
-      new Audio('audio/nobody.mp3'),
-      new Audio('audio/shoes.mp3')
+      'audio/rick.mp3',
+      'audio/no.mp3',
+      'audio/numa.mp3',
+      'audio/charlie.mp3',
+      'audio/keyboard.mp3',
+      'audio/evolution.mp3',
+      'audio/friday.mp3',
+      'audio/dramatic.mp3',
+      'audio/bacon.mp3',
+      'audio/david.mp3',
+      'audio/britney.mp3',
+      'audio/babymonkey.mp3',
+      'audio/potter.mp3',
+      'audio/father.mp3',
+      'audio/panda.mp3',
+      'audio/turtles.mp3',
+      'audio/badger.mp3',
+      'audio/hide.mp3',
+      'audio/nobody.mp3',
+      'audio/shoes.mp3'
     ]
 
-    for (let audio of this.audioArray) {
-      audio.load();
-    }
+    // for (let audio of this.audioArray) {
+    //   audio.load();
   }
 }

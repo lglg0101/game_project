@@ -15,7 +15,7 @@ class Game {
         this.score = new Score(this);
         this.clips = new Clips(this);
         this.gameover = new Gameover(this);
-      
+
         this.troll = [];
         this.video = [];
         this.coin = [];
@@ -59,7 +59,7 @@ class Game {
         for (let i = 0; i < this.coin.length; i++) {
             this.coin[i].draw();
         }
-    
+
         this.updateEverything(timestamp)
         const animation = window.requestAnimationFrame(timestamp => this.drawEverything(timestamp));
         if (this.end) {
@@ -107,13 +107,13 @@ class Game {
         //call collision function with troll - end game 
         for (let i = 0; i < this.troll.length; i++) {
             if (this.collision(this.player, this.troll[i])) {
-                
+
                 this.video.splice(i, 1);
 
-                if(this.sound !== undefined){ 
-                this.sound.pause();
-                this.clips.audioArray.splice(0, 1);
-                } 
+                if (this.sound !== undefined) {
+                    this.sound.pause();
+                    this.clips.audioArray.splice(0, 1);
+                }
 
                 let audio = new Audio('audio/darkness.mp3');
                 audio.play();
@@ -129,12 +129,12 @@ class Game {
                 this.score.videoPoints();
                 this.score.videoNum();
                 this.video.splice(i, 1);
-                
+
 
                 $clipCanvas.src = game.clips.clipsArray[0];
                 this.clips.clipsArray.splice(0, 1);
 
-                this.sound = this.clips.audioArray[0];
+                this.sound = new Audio(this.clips.audioArray[0]);
                 this.sound.play();
                 this.clips.audioArray.splice(0, 1);
 
@@ -154,7 +154,7 @@ class Game {
         }
 
         //border detection
-            if(this.player.x < -5 || this.player.x > 650 || this.player.y > 455 || this.player.y < -50){ 
+        if (this.player.x < -5 || this.player.x > 650 || this.player.y > 455 || this.player.y < -50) {
             this.endGame();
         }
     }
@@ -185,18 +185,18 @@ class Game {
         this.end = true;
         // this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.gameover.draw()
-        
+
     }
 
     stopAllAudio() {
-        
+
     }
 
     //reset the game 
-    reset () {
+    reset() {
         this.gameover.reset();
     }
-   
+
 
     //start the game
     start() {
