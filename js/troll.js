@@ -7,7 +7,7 @@ class Troll {
     this.objectWidth = 60;
     this.objectHeight = 60;
 
-    this.x = Math.floor((Math.random() * this.width) + 10);
+    this.x = Math.floor((Math.random() * this.width-60) + 10);
     this.y = this.height;
   
     this.vy = -2.5;

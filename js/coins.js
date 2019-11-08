@@ -6,7 +6,7 @@ class Coin {
           this.objectHeight = 30; 
           this.context = game.context;
 
-          this.y = Math.floor((Math.random() * this.height));
+          this.y = Math.floor((Math.random() * this.height-20));
           this.x = 650;
 
           // this.vy = 650;
