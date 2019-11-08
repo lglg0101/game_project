@@ -68,7 +68,7 @@ reset() {
 
         //arrays reset 
         
-        this.clipsArray = [
+        this.game.clips.clipsArray = [
             'screenshots/rick.png',
             'screenshots/no.png',
             'screenshots/numa.png',
@@ -90,8 +90,9 @@ reset() {
             'screenshots/nobody.png',
             'screenshots/shoes.png',
         ]
+
        
-        this.audioArray = [
+        this.game.clips.audioArray = [
            'audio/rick.mp3',
            'audio/no.mp3',
            'audio/numa.mp3',
@@ -114,6 +115,9 @@ reset() {
            'audio/shoes.mp3',
        ]
        
+       console.log(this.clipsArray);
+       console.log(this.audioArray);
+
 
         //player reset
         this.game.player.x = 350;
