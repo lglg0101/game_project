@@ -12,6 +12,7 @@ class Clips {
     // this.audioArray = []
 
     this.clipsArray = [
+
       'screenshots/rick.png',
       'screenshots/no.png',
       'screenshots/numa.png',
@@ -31,8 +32,12 @@ class Clips {
       'screenshots/badger.png',
       'screenshots/hide.png',
       'screenshots/nobody.png',
-      'screenshots/shoes.png',
+      'screenshots/shoes.png'
     ]
+
+    // for (let image of this.clipsArray) {
+    //   image.onload();
+
 
     this.audioArray = [
       new Audio('audio/rick.mp3'),
@@ -60,6 +65,5 @@ class Clips {
     for (let audio of this.audioArray) {
       audio.load();
     }
-
   }
 }
