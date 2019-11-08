@@ -5,37 +5,86 @@
   
 canvas { 
     border: 4px, solid, blue;
-    margin-top: 0px;
 }
 
 body {
-    margin: -20; 
     font-family: "Komika Title - Brush", monospace, Arial, Helvetica, sans-serif;
     background: url('images/backgroundcolor.png');
-    background-repeat: repeat;
+    background-repeat: repeat-y;
     background-size: cover;
 }
 
-.gameLinks { 
-
+.content { 
   display: flex;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.links { 
+
+}
+
+h1{ 
+  font-size: 40px;
+  color: mediumvioletred;
+}
+
+h3 { 
+  font-size: 25px;
+
+}
+
+.instructions { 
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;;
+}
+
+P {
+  font-family: 'Chathura', sans-serif;
+  font-size: 30px;
+  width: 500px;
+  background: url('images/backgroundfinal2.png')
+  border: 1px solid blue;
+  text-align: center;
+  color: white;
 }
 
 .startText { 
   font-family: "Komika Title - Brush";
-  font-size: 30px;
+  font-size: 25px;
   color:white;
 }
 
 .resetText { 
-  font-size: 30px;
+  font-size: 25px;
   color: white;
-
 }
 
-h2:hover { 
+.points { 
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+h3:hover { 
   color: yellow;
+}
+
+h4 { 
+  color: mediumvioletred;
+}
+
+.points { 
+  display: flex;
+  flex-direction: row;;
+  justify-content: center;
+}
+
+.icon { 
+  width: 25px;
+  height: 25px;
 }
 
 
@@ -52,8 +101,6 @@ h2:hover {
   height: 270px;
 }
   
-
-
 .container2 { 
   background: url('images/transparent2.png');
   background-repeat: no-repeat;
