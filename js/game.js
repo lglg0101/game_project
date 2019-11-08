@@ -134,7 +134,7 @@ class Game {
                 $clipCanvas.src = game.clips.clipsArray[0];
                 this.clips.clipsArray.splice(0, 1);
 
-                this.sound = new Audio(this.clips.audioArray[0]);
+                this.sound = this.clips.audioArray[0];
                 this.sound.play();
                 this.clips.audioArray.splice(0, 1);
 
